@@ -1,0 +1,15 @@
+int eventspercycle = 20;  // # events per sphere per cycle
+int N = 2969;                         // number of spheres
+double initialpf = 0.01;                   // initial packing fraction
+double maxpf = 0.83;                   // max packing fraction
+double temp = 0.2;    // initial temp., use 0 for zero velocities
+double growthrate = 0.001;          // growth rate
+double maxpressure = 100.;           // max pressure 
+char* readfile = new                   // if new, creates new packing
+char* writefile = write.dat  // after mp2
+char* datafile = stats.dat  // data file up to mp2
+//want 0.01886792452
+//somewhere around 2975
+// 2970: 0.01886415791672578
+//2969: 0.01886735111541435, 0.01887820627144192
+//2968: 0.01888007894385477

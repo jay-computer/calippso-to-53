@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "event.C": "cpp",
+        "spheres.C": "cpp",
+        "box.C": "cpp",
+        "heap.C": "cpp",
+        "sphere.C": "cpp",
+        "read_input.C": "cpp",
+        "neighbor.C": "cpp",
+        "box_reflecting.C": "cpp"
+    }
+}
