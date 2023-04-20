@@ -1,3 +1,90 @@
+#%%
+import random
+import math
+from matplotlib import pyplot as plt
+import numpy as np
+import csv
+from matplotlib.patches import Circle, Rectangle
 import julia
-julia.install(julia="C:/Users/jo/AppData/Local/Programs/Julia-1.8.5/bin/julia.exe")
-j = julia.Julia()
+import os
+
+j = julia.Julia(compiled_modules=False)
+ran = j.include("calippso.jl")
+
+
+#%% RUN OUR LOCAL VERSION OF LUBACHEVSKY
+'''os.system("rm -f ./LS/spheres.exe")
+os.system("rm -f ./LS/spheres")
+os.chdir("LS")
+os.system("ls")
+os.system("make")
+os.system("./spheres input.txt")'''
+
+#%% CONVERT LS TO 106 MM DOMAIN
+def distance(p1, p2):
+    return math.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
+
+
+filename = os.getcwd() + "/LS/write.dat"
+lines = open(filename).read().splitlines()
+multiplier = 2 / float(lines[3])
+print(lines[3])
+print(multiplier)
+#coordinates start at index = 6
+lines = lines[6:]
+pts = []
+xs = []
+ys = []
+for line in lines:
+    temp = line.split()
+    pts.append((float(temp[0]) * multiplier , float(temp[1]) * multiplier ))
+
+for pt in pts:
+    xs.append(pt[0])
+    ys.append(pt[1])
+
+
+indices_rem = []
+for i in range(len(pts)):
+    if distance((pts[i][0], pts[i][1]), (53, 53)) > (53-1):
+        indices_rem.append(i)
+    
+    #if distance((pts[i][0], pts[i][1]), (53, 53)) < 5.5:
+    #    indices_rem.append(i)
+indices_rem.sort()
+indices_rem = set(indices_rem)
+
+
+print(len(pts))
+pts = [v for i, v in enumerate(pts) if i not in indices_rem]
+print(len(pts))
+
+file = open("input_Calippso.dat", 'w')
+file.write("2\n")
+file.write("2969\n")
+file.write(f"{multiplier}\n")
+for i in range(len(xs)):
+    file.write(str(xs[i]) + " " + str(ys[i]) + "\n")
+
+file.close()
+fig,ax = plt.subplots(1)
+ax.set_aspect('equal')
+
+r = 1
+lowerbound = -2
+upperbound = 108
+
+fig.set_size_inches(12, 12)
+ax.set(xlim=(lowerbound, upperbound), ylim=(lowerbound, upperbound))
+''''''
+
+
+for i in range(0, len(pts)):
+    #if distance([xs[i], ys[i]], [26.5, 26.5]) <= 26.5 and distance([xs[i], ys[i]], [26.5, 26.5]) >= 5:
+    circ = Circle((pts[i][0], pts[i][1]), r, fill=True, color = 'k')
+    ax.add_patch(circ)   
+
+big_circ = Circle((53, 53), 53, fill=False, color='r')
+ax.add_patch(big_circ)
+fig.savefig('before_calippso.png')
+#%%RUN CALIPPSO
