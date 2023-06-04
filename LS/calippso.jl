@@ -1,3 +1,4 @@
+#=
 using CALiPPSO 
 using Random
 using DelimitedFiles
@@ -24,4 +25,8 @@ file = open("output_Calippso.txt", "w")
 for i in getfield.(packing.Particles, :X)
         write(file, string(i[1].value, ", ", i[2].value, "\n"))
 end
+close(file)
+=#
+print("swag")
+file = open("output_Calippso.txt", "w")
 close(file)
