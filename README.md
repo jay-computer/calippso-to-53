@@ -17,7 +17,6 @@ __Gurobi IS required.__ The second version of CALiPPSO does not run with GLPK.
 4. [Download the pertinent Gurobi version.](https://www.gurobi.com/downloads/gurobi-software/)
 5. [Linux users may have to follow this guide to set up environment paths.](https://ca.cs.uni-bonn.de/doku.php?id=tutorial:gurobi-install)
 6. [Windows users just run .exe file and copy and paste the 'grbgetkey' command under "INSTALL" under their User Portal Licenses.](https://portal.gurobi.com/iam/licenses/list/)
-7. Restart VSCode.
 
 
 Gurobi should be installed and registered on your machine.
@@ -37,6 +36,7 @@ __Julia IS required.__ The CALLiPPSO runs on Julia.
 4. Once Julia is installed, run `]add CALiPPSO` in a Julia REPL ([For Windows, search 'Julia'. For Linux, run 'julia' in the terminal.](https://docs.juliahub.com/CALiPPSO/vkUrj/0.2.1/installation.html))
 5. Go to VSCode and install the Julia extension from the VSCode marketplace.
 6. Go to File > Preferences > Settings. Then, search "Julia: Executable Path". Enter the path to your julia executable, ex: `C:/Users/jay/AppData/Local/Programs/Julia-1.9.0/bin/julia.exe`
+7. Restart VSCode.
 
 It is assumed that matplotlib, numpy, and among other modules in the main Python script are installed.
 
