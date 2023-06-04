@@ -17,6 +17,7 @@ __Gurobi IS required.__ The second version of CALiPPSO does not run with GLPK.
 4. [Download the pertinent Gurobi version.](https://www.gurobi.com/downloads/gurobi-software/)
 5. [Linux users may have to follow this guide to set up environment paths.](https://ca.cs.uni-bonn.de/doku.php?id=tutorial:gurobi-install)
 6. [Windows users just run .exe file and copy and paste the 'grbgetkey' command under "INSTALL" under their User Portal Licenses.](https://portal.gurobi.com/iam/licenses/list/)
+7. Restart VSCode.
 
 
 Gurobi should be installed and registered on your machine.
