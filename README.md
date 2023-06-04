@@ -25,8 +25,17 @@ __Julia IS required.__ The CALLiPPSO runs on Julia.
 
 1. [Julia installation for platforms are documented on their website.](https://julialang.org/downloads/)
 2. [Install PyJulia, __ENSURING THAT PyJulia IS INSTALLED ON THE SAME PYTHON VERSION AS THE ONE THAT WILL RUN THE SCRIPT.__](https://pyjulia.readthedocs.io/en/latest/installation.html)
-3. Once Julia is installed, run `]add CALiPPSO` in a Julia REPL ([For Windows, search 'Julia'. For Linux, run 'julia' in the terminal.](https://docs.juliahub.com/CALiPPSO/vkUrj/0.2.1/installation.html))
-
+3. [Once Julia is installed, run `python` or `python3` in command prompt or terminal and run the following:](https://github.com/JuliaPy/pyjulia#quick-usage)
+```$ python3
+>>> import julia
+>>> julia.install()               # install PyCall.jl etc.
+>>> from julia import Base        # short demo
+>>> Base.sind(90)
+1.0
+```
+4. Once Julia is installed, run `]add CALiPPSO` in a Julia REPL ([For Windows, search 'Julia'. For Linux, run 'julia' in the terminal.](https://docs.juliahub.com/CALiPPSO/vkUrj/0.2.1/installation.html))
+5. Go to VSCode and install the Julia extension from the VSCode marketplace.
+6. Go to File > Preferences > Settings. Then, search "Julia: Executable Path". Enter the path to your julia executable, ex: `C:/Users/jay/AppData/Local/Programs/Julia-1.9.0/bin/julia.exe`
 
 It is assumed that matplotlib, numpy, and among other modules in the main Python script are installed.
 
