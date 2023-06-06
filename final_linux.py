@@ -83,7 +83,7 @@ for i in range(0, len(pts)):
 big_circ = Circle((53, 53), 53, fill=False, color='r')
 ax.add_patch(big_circ)
 
-checkpoint = datetime.datetime.now()
+checkpoint = f"{datetime.datetime.now():%Y-%m-%d-%Hhr%Mmin}"
 
 fig.savefig(f'datums/before_calippso{checkpoint}.png')
 
